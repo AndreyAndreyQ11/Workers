@@ -3,7 +3,7 @@
 
 body {
   background: #90EE90;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Calibri, "Helvetica Neue", Helvetica, sans-serif;
   text-align: center;
 }
 
@@ -11,11 +11,22 @@ body {
   width: 200px;
   border: 2px solid rgb(0, 0, 0);
   display: inline-block;
-
 }
 
+h1 {
+  font-size: 25px;
+  font-weight: 900;
+
+  animation: colorH1 6s linear infinite alternate;
+  margin: 10px 0px;
+}
+
+
 .formula {
-  font-size: 10px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .fild>input {
@@ -44,10 +55,10 @@ input::-webkit-inner-spin-button {
   margin: 2px auto;
   width: 170px;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  height: 17px;
+  height: 18px;
   display: inline-block;
   resize: none;
-  /* overflow: scroll; */
+  overflow: hidden;
 }
 
 button {
@@ -101,5 +112,21 @@ button:active {
   100% {
     background-color: rgb(208, 12, 12);
     left: 97%;
+  }
+}
+
+@keyframes colorH1 {
+  0% {
+    color: rgb(185, 208, 12);
+
+  }
+
+  50% {
+    color: rgb(208, 12, 175);
+  }
+
+  100% {
+    color: rgb(45, 208, 12);
+
   }
 }
