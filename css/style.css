@@ -14,14 +14,28 @@ body {
 
 }
 
+.formula {
+  font-size: 10px;
+}
+
 .fild>input {
   background-color: aqua;
   border: 1px solid rgb(0, 0, 0);
   text-align: center;
   margin: 2px;
   width: 170px;
-  height: 17px;
+
+  overflow: hidden;
 }
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 
 .textOutput {
   background-color: aqua;
@@ -29,10 +43,8 @@ body {
   text-align: center;
   margin: 2px auto;
   width: 170px;
-
-  /* min-height: 17px;
-
-  max-height: 1000px; */
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 17px;
   display: inline-block;
   resize: none;
   /* overflow: scroll; */
@@ -90,5 +102,4 @@ button:active {
     background-color: rgb(208, 12, 12);
     left: 97%;
   }
-
 }

@@ -10,35 +10,35 @@ import { textEnter, textOutput, button } from "./modules/elements.js";
 // };
 // textOutput.addEventListener('change', test)
 let n = Number(textEnter.value);
-// let n;
 const worker = new Worker('./workers/test.js', {
   type: 'module',
 });
-// worker.onmessage = error1 => {
-//   textOutput.innerHTML = error1.massege;
-//   console.log(111111111);
-// };
+
 worker.onmessage = event => {
+  console.log(event.data);
   textOutput.innerHTML = event.data;
-  console.log(4, event);
+  // textOutput.style.height = 17 * Math.ceil(((String(event.data).length) / 20)) + "px";
 };
+
+
+
+// textOutput.addEventListener('keyup', function () {
+//   if (this.scrollTop > 0) {
+//     this.style.height = this.scrollHeight + "px";
+//   }
+// });
+
 
 textEnter.addEventListener('change', (e) => {
   n = Number(e.target.value);
-  console.log(n);
 })
 button.onclick = function () {
   textOutput.innerHTML = "Ожидайте...";
-  console.log(1, n);
+  // textOutput.style.height = 17 + "px";
   worker.postMessage(n);
-  // setTimeout(test, 5);
 };
-// function test() {
-//   console.dir(textOutput)
-//   // textOutput.value = heavyСalculation(Number(textEnter.value));
 
-//   textOutput.innerHTML = heavyСalculation(Number(textEnter.value));
-// }
+
 
 
 
