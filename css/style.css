@@ -19,6 +19,23 @@ body {
   border: 1px solid rgb(0, 0, 0);
   text-align: center;
   margin: 2px;
+  width: 170px;
+  height: 17px;
+}
+
+.textOutput {
+  background-color: aqua;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: center;
+  margin: 2px auto;
+  width: 170px;
+
+  /* min-height: 17px;
+
+  max-height: 1000px; */
+  display: inline-block;
+  resize: none;
+  /* overflow: scroll; */
 }
 
 button {
@@ -65,7 +82,7 @@ button:active {
   }
 
   50% {
-    border-radius: 10%;
+    border-radius: 2%;
     background-color: rgb(68, 247, 14);
   }
 
