@@ -10,36 +10,31 @@ import { textEnter, textOutput, button } from "./modules/elements.js";
 // };
 // textOutput.addEventListener('change', test)
 let n = Number(textEnter.value);
-const worker = new Worker('./workers/test.js', {
-  type: 'module',
-});
-
-worker.onmessage = event => {
-  console.log(event.data);
-  textOutput.innerHTML = event.data;
-  // textOutput.style.height = 17 * Math.ceil(((String(event.data).length) / 20)) + "px";
-};
-worker.onerror = error => {
-  console.log(error);
-  textOutput.innerHTML = error.masage;
-  // textOutput.style.height = 17 * Math.ceil(((String(event.data).length) / 20)) + "px";
-};
-
-
-// textOutput.addEventListener('keyup', function () {
-//   if (this.scrollTop > 0) {
-//     this.style.height = this.scrollHeight + "px";
-//   }
-// });
 
 
 textEnter.addEventListener('change', (e) => {
   n = Number(e.target.value);
 })
 button.onclick = function () {
+  const worker = new Worker('./workers/test.js', {
+    type: 'module',
+  });
   textOutput.innerHTML = "Ожидайте...";
-  // textOutput.style.height = 17 + "px";
+  textOutput.style.height = 17 + "px";
   worker.postMessage(n);
+
+
+  worker.onmessage = event => {
+    // console.log('3', event.data);
+    textOutput.innerHTML = event.data;
+    worker.terminate();
+  };
+
+  worker.onerror = error => {
+    textOutput.innerHTML = error.message;
+    textOutput.style.height = 17 * 2 + "px";
+    worker.terminate();
+  };
 };
 
 
