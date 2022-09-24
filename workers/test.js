@@ -7,10 +7,7 @@ onmessage = function (e) {
 
     for (let i = num; i > 0; i--) {
         result += i;
-        result += i;
-        result += i;
-        result += i;
-        result += i;
+
     };
 
     postMessage(result);

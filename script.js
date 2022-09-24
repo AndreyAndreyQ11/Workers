@@ -19,7 +19,11 @@ worker.onmessage = event => {
   textOutput.innerHTML = event.data;
   // textOutput.style.height = 17 * Math.ceil(((String(event.data).length) / 20)) + "px";
 };
-
+worker.onerror = error => {
+  console.log(error);
+  textOutput.innerHTML = error.masage;
+  // textOutput.style.height = 17 * Math.ceil(((String(event.data).length) / 20)) + "px";
+};
 
 
 // textOutput.addEventListener('keyup', function () {
